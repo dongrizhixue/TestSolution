@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCollectionDelete
+namespace TestLinq.TestLinqSyntax
 {
-    class Program
+    public static class LinqDelete
     {
-        static void Main(string[] args)
-        {
-            Delete2();
-        }
 
         /// <summary>
         /// 匿名对象的删除

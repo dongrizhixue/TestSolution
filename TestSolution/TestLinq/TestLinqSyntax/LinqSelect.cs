@@ -4,23 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCollectionWhereNull
+namespace TestLinq.TestLinqSyntax
 {
-    class Program
+    public static class LinqSelect
     {
-        static void Main(string[] args)
-        {
-            Select2();
-        }
-
-        private static void Select1()
+        public static void Select1()
         {
             List<UserInfo> listUserInfo = new List<UserInfo>() { new UserInfo { ID = 1, Name = "A", Age = 20 }, new UserInfo { ID = 2, Name = "B", Age = 20 } };  //实例化集合
             UserInfo user = listUserInfo.Where(p => p.ID == 2).FirstOrDefault();
             Console.WriteLine("ID:" + user.ID + " Name:" + user.Name + " Age:" + user.Age);
             Console.ReadKey();
         }
-        private static void Select2()
+        public static void Select2()
         {
             List<UserInfo> listUserInfo = new List<UserInfo>() { new UserInfo { ID = 1, Name = "A", Age = 20 }, new UserInfo { ID = 2, Name = "B", Age = 20 } };  //实例化集合
             listUserInfo.Select(p => p.ID == 1);
@@ -30,11 +25,19 @@ namespace TestCollectionWhereNull
             listUserInfo.ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
             Console.ReadKey();
         }
-    }
-    class UserInfo
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
+        /// <summary>
+        /// 测试c# linq.Where+Func筛选数据
+        /// </summary>
+        public static void Select3()
+        {
+            List<UserInfo> listUserInfo = new List<UserInfo>() { new UserInfo { ID = 1, Name = "A", Age = 20 }, new UserInfo { ID = 2, Name = "B", Age = 20 }, new UserInfo { ID = 3, Name = "C", Age = 20 } };  //实例化集合
+
+            Func<UserInfo, bool> filterID = x => true, filterName = x => true;
+            //filterID = x => x.Age == 20;
+            //filterName = x => x.Name != "C";
+            List<UserInfo> listWhere = listUserInfo.Where(filterID).Where(filterName).ToList();
+            listWhere.ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
+            Console.ReadKey();
+        }
     }
 }

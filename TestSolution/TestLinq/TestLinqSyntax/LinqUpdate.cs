@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCollectionUpdate
+namespace TestLinq.TestLinqSyntax
 {
-    class Program
+    public static class LinqUpdate
     {
-        static void Main(string[] args)
-        {
-            Update1();
-        }
-
         /// <summary>
         /// 采用找元素的方法更新集合
         /// </summary>
@@ -35,11 +30,5 @@ namespace TestCollectionUpdate
             listUserInfo.ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
             Console.ReadKey();
         }
-    }
-    class UserInfo
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
     }
 }
