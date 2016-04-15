@@ -32,10 +32,9 @@ namespace TestLinq.TestLinqSyntax
         {
             List<UserInfo> listUserInfo = new List<UserInfo>() { new UserInfo { ID = 1, Name = "A", Age = 20 }, new UserInfo { ID = 2, Name = "B", Age = 20 }, new UserInfo { ID = 3, Name = "C", Age = 20 } };  //实例化集合
             Func<UserInfo, bool> filterID = x => true, filterName = x => true;
-            //filterID = x => x.Age == 20;
-            //filterName = x => x.Name != "C";
+            filterID = x => x.Age == 20;
+            filterName = x => x.Name != "C";
             List<UserInfo> listWhere = listUserInfo.Where(filterID).Where(filterName).ToList();
-
             listWhere.ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
             Console.ReadKey();
         }
@@ -53,6 +52,7 @@ namespace TestLinq.TestLinqSyntax
                           select n;
             varlist.ToList().ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
             Console.ReadKey();
+
         }
     }
 }
