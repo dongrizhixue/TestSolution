@@ -12,7 +12,7 @@ namespace TestLinq.TestLinqSyntax
         /// <summary>
         /// 匿名对象的删除
         /// </summary>
-        private static void Delete1()
+        public static void Delete1()
         {
             List<UserInfo> listUserInfo = new List<UserInfo>() { new UserInfo { ID = 1, Name = "A" }, new UserInfo { ID = 2, Name = "B" } };  //实例化集合
             listUserInfo.Remove(listUserInfo.Where(p => p.ID == 1).FirstOrDefault());   //从集合中删除实体
@@ -25,7 +25,7 @@ namespace TestLinq.TestLinqSyntax
         /// <summary>
         /// 实体对象的删除
         /// </summary>
-        private static void Delete2()
+        public static void Delete2()
         {
             List<UserInfo> listUserInfo = new List<UserInfo>();
             UserInfo user = new UserInfo();   //实体1

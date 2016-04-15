@@ -10,7 +10,7 @@ namespace TestLinq
     {
         static void Main(string[] args)
         {
-            TestLinqSyntax.LinqSelect.Select3();
+            TestLinqSyntax.LinqDelete.Delete1();
         }
     }
     class UserInfo
