@@ -52,7 +52,13 @@ namespace TestLinq.TestLinqSyntax
                           select n;
             varlist.ToList().ForEach(p => Console.WriteLine("ID:" + p.ID + " Name:" + p.Name + " Age:" + p.Age));
             Console.ReadKey();
+        }
 
+        public static void Select5()
+        {
+            string strContons = "先生";
+            Console.WriteLine(strContons.Length.ToString());
+            Console.ReadKey();
         }
     }
 }
